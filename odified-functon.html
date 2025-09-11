@@ -12,11 +12,12 @@
     <button onclick="playGame('ROCK');">ROCK</button>
     <button onclick= "playGame('PAPER');">PAPER</button>
     <button onclick="playGame('SCISSOR');">SCISSOR</button>
-    <button ONCLICK = "score.wins=0;score.losses=0;score.ties=0;">RESET</button>
+    <button ONCLICK ="playGame('RESET')">RESET</button>
     <script>
             const score = {wins:0,losses:0,ties:0}
 
            console.log( localStorage.getItem('score'));
+           console.log( typeof console.log);
 
         function playGame(playerMove){
           
@@ -47,7 +48,16 @@
                 } else if (computerMove === 'SCISSOR'){
                     result = 'Tie!';
                 }
-            }
+            }       
+            else if(playerMove === 'RESET'){
+                if (computerMove === 'ROCK'){
+                    result = 0;
+                } else if (computerMove === 'PAPER'){
+                    result = 0;
+                } else if (computerMove === 'SCISSOR'){
+                    result = 0;
+                }
+               }
 
                 if(result === 'You win!'){
                     score.wins += 1;
@@ -57,16 +67,18 @@
                     score.ties += 1;
                 }
 
+
+
+                 function RESET(){
+            
+            score = {wins:0, losses:0, ties:0}; 
+            localStorage.setItem('score', JSON.stringify(score)); 
+            alert(`RESET! Wins: 0, Losses: 0, Ties: 0`); 
+        }
+
             alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}  ,losses:${score.losses},wins:${score.wins},ties:${score.ties}`); 
             localStorage.setItem('score', JSON.stringify(score));
-        }
-                    function RESET(){
-            score = { wins: 0, losses: 0, ties: 0 };
-            localStorage.setItem('score', JSON.stringify(score)); // ✅ clear storage
-            alert(`Score reset!, Wins:${score=0}. Losses:${score=0}, Ties:${score=0}`);
-        }
-        
-        
+        }   
 function getComputerMove() {
     const randomNumber = Math.random();
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        const person = {
+            name: 'John',
+            age: 30,
+            city: 'New York'
+        };
+
+        console.log(person.name); // Output: John
+        console.log(person.age);  // Output: 30
+        console.log(person.city); // Output: New York   
+
+        person.age = 31; // Update age
+        console.log(person.age);  // Output: 31
+
+        person.newage = 32; // Add new property
+        console.log(person.newage); // Output: 32
+
+        person.newcity = true;
+        console.log(person.newcity); // Output: true 
+
+        delete person.newcity; // Delete newcity
+        console.log(person.newcity); // Output: undefined
+
+        delete person.city; // Delete city
+        console.log(person.city); // Output: undefined
+
+    </script>
+</body>
+</html>
